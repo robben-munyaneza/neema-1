@@ -16,7 +16,7 @@ require_once 'includes/header.php';
         <div class="col-lg-6">
             <div class="card-glass p-5">
                 <h3 class="text-white mb-3 font-heading text-gradient-primary">A Three-Tier System Built for Trust</h3>
-                <p class="text-secondary">Name-e-Shopping was designed to bridge trust gaps between consumers and digital merchants. By enforcing seller document verification and setting exact geolocation tags, we guarantee authentic products.</p>
+                <p class="text-secondary">NEEMA was designed to bridge trust gaps between consumers and digital merchants. By enforcing seller document verification and setting exact geolocation tags, we guarantee authentic products.</p>
                 <div class="d-flex flex-column gap-3 mt-4">
                     <div class="d-flex align-items-start gap-3">
                         <div class="bg-dark rounded p-2 text-warning border border-secondary"><i class="bi bi-shield-fill-check"></i></div>

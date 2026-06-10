@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="bi bi-person-plus-fill text-gradient-primary fs-2"></i>
                     </div>
                     <h2 class="text-white font-heading mb-1">Create Account</h2>
-                    <p class="text-secondary small">Join Name-e-Shopping marketplace today</p>
+                    <p class="text-secondary small">Join NEEMA marketplace today</p>
                 </div>
                 
                 <?php if (!empty($error_msg)): ?>

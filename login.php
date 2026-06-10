@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="bi bi-shield-lock-fill text-gradient-primary fs-2"></i>
                     </div>
                     <h2 class="text-white font-heading mb-1">Access Portal</h2>
-                    <p class="text-secondary small">Secure credential gates for Name-e-Shopping</p>
+                    <p class="text-secondary small">Secure credential gates for NEEMA</p>
                 </div>
                 
                 <?php if (!empty($error_msg)): ?>

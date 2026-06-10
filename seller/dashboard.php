@@ -121,10 +121,9 @@ $stmt_prods->execute();
 $seller_prods = $stmt_prods->get_result();
 $stmt_prods->close();
 
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/dashboard_header.php';
 ?>
 
-<div class="container py-5 mt-4">
     <!-- Compliance Status Banner -->
     <?php if ($current_user['status'] !== 'approved'): ?>
         <div class="alert alert-warning bg-warning-subtle border-warning text-dark rounded-4 p-4 mb-5 animate-fade-in">
@@ -133,51 +132,8 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
     <?php endif; ?>
 
-    <div class="row gy-4">
-        <!-- Sidebar Profile -->
-        <div class="col-lg-3">
-            <div class="card-glass p-4 sticky-top" style="top: 100px; z-index: 10;">
-                <div class="text-center mb-4 border-bottom border-secondary pb-4">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-dark rounded-circle border border-secondary mb-3" style="width: 80px; height: 80px;">
-                        <i class="bi bi-shop text-gradient-primary fs-1"></i>
-                    </div>
-                    <h4 class="text-white font-heading mb-1"><?php echo htmlspecialchars($current_user['name']); ?></h4>
-                    <span class="badge <?php echo $current_user['status'] === 'approved' ? 'bg-info' : 'bg-warning text-dark'; ?> py-1 px-3">
-                        Seller Center (<?php echo ucfirst($current_user['status']); ?>)
-                    </span>
-                </div>
-                
-                <div class="d-flex flex-column gap-3 small mb-4">
-                    <div>
-                        <span class="text-secondary d-block">Location Coordinates</span>
-                        <strong class="text-white"><i class="bi bi-geo-alt-fill text-danger me-1"></i> <?php echo htmlspecialchars($current_user['location'] ?? 'Not set'); ?></strong>
-                    </div>
-                    <div>
-                        <span class="text-secondary d-block">Contact Email</span>
-                        <strong class="text-white"><?php echo htmlspecialchars($current_user['email']); ?></strong>
-                    </div>
-                    <div>
-                        <span class="text-secondary d-block">Compliance Docs</span>
-                        <?php if ($current_user['seller_documents']): ?>
-                            <a href="../<?php echo htmlspecialchars($current_user['seller_documents']); ?>" class="text-info d-inline-block mt-1 text-decoration-none fw-bold" target="_blank">
-                                <i class="bi bi-file-earmark-check-fill me-1"></i> View Submitted Doc
-                            </a>
-                        <?php else: ?>
-                            <span class="text-danger small">No document submitted</span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                
-                <div class="d-flex flex-column gap-2 pt-3 border-top border-secondary">
-                    <a href="dashboard.php" class="dashboard-nav-link active"><i class="bi bi-box-seam"></i> Products Inventory</a>
-                    <a href="orders.php" class="dashboard-nav-link"><i class="bi bi-receipt"></i> Incoming Orders</a>
-                    <a href="../logout.php" class="btn btn-outline-danger btn-sm w-100 mt-2"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
-                </div>
-            </div>
-        </div>
-        
         <!-- Inventory management & Form -->
-        <div class="col-lg-9">
+        <div class="col-12">
             <h2 class="text-white mb-4"><i class="bi bi-shop-window text-gradient-primary me-2"></i>Inventory Control Manager</h2>
             
             <div class="row g-4">
@@ -318,9 +274,6 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const isDigital = document.getElementById('is_digital');
@@ -347,4 +300,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/dashboard_footer.php'; ?>

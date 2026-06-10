@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3"><i class="bi bi-grid-3x3-gap-fill me-2 text-gradient-primary"></i>Name-e-Shopping</h5>
+                    <h5 class="text-white mb-3 d-flex align-items-center"><img src="/neema/assets/uploads/logo.png" alt="NEEMA Logo" style="height: 25px; margin-right: 10px; border-radius: 3px;">NEEMA</h5>
                     <p class="text-secondary small">Experience the future of dynamic and premium online shopping. Tailored marketplaces for admin supervision, seller freedom, and verified premium customer quality reviews.</p>
                     <div class="d-flex gap-2 mt-3">
                         <a href="#" class="btn btn-premium-secondary px-3 py-2 btn-sm"><i class="bi bi-facebook"></i></a>
@@ -43,7 +43,7 @@
             <hr class="border-secondary my-4">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="text-secondary small mb-0">&copy; <?php echo date("Y"); ?> Name-e-Shopping Inc. All rights reserved.</p>
+                    <p class="text-secondary small mb-0">&copy; <?php echo date("Y"); ?> NEEMA. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="text-secondary small mb-0">Designed for Premium Web Design CAT 2.</p>

@@ -40,13 +40,14 @@ $products_res = $conn->query("SELECT p.*, s.name as seller_name
                               LEFT JOIN users s ON p.seller_id = s.id 
                               ORDER BY p.id DESC LIMIT 10");
 
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/dashboard_header.php';
 ?>
 
-<div class="container py-5 mt-4">
-    <h2 class="text-white mb-4"><i class="bi bi-speedometer2 text-gradient-primary me-2"></i>Admin Control Center</h2>
-    
-    <!-- Row of Stat Widgets -->
+        <!-- Main Content -->
+        <div class="col-12">
+            <h2 class="text-white mb-4"><i class="bi bi-speedometer2 text-white me-2"></i>Admin Control Center</h2>
+            
+            <!-- Row of Stat Widgets -->
     <div class="row g-4 mb-5">
         <div class="col-lg-3 col-6">
             <div class="stats-card text-center">
@@ -80,7 +81,7 @@ require_once __DIR__ . '/../includes/header.php';
 
     <div class="row gy-5">
         <!-- Sellers Compliance Review Desk -->
-        <div class="col-xl-8">
+        <div class="col-xl-12">
             <div class="card-glass p-4 h-100">
                 <h4 class="text-white mb-4 font-heading"><i class="bi bi-patch-check-fill text-info me-2"></i>Sellers Compliance Desk</h4>
                 
@@ -153,7 +154,7 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
 
         <!-- Latest Published listings sidebar -->
-        <div class="col-xl-4">
+        <div class="col-xl-12 mt-4">
             <div class="card-glass p-4 h-100">
                 <h4 class="text-white mb-4 font-heading"><i class="bi bi-box-seam text-warning me-2"></i>Global Marketplace listings</h4>
                 
@@ -178,6 +179,6 @@ require_once __DIR__ . '/../includes/header.php';
             </div>
         </div>
     </div>
-</div>
+        </div>
 
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/dashboard_footer.php'; ?>

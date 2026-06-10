@@ -23,17 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="card-glass p-5 h-100 d-flex flex-column justify-content-between">
                 <div>
                     <h4 class="text-white mb-4 font-heading"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Corporate Headquarters</h4>
-                    <p class="text-secondary small mb-4">Name-e-Shopping Tech City Plaza, Tower B, Kigali, Rwanda.</p>
+                    <p class="text-secondary small mb-4">NEEMA Tech City Plaza, Tower B, Kigali, Rwanda.</p>
                     
                     <h5 class="text-white mb-3 font-heading"><i class="bi bi-envelope-open-fill text-info me-2"></i>E-mail Queries</h5>
-                    <p class="text-secondary small mb-4">support@name-e-shopping.com<br>info@name-e-shopping.com</p>
+                    <p class="text-secondary small mb-4">support@neema.com<br>info@neema.com</p>
 
                     <h5 class="text-white mb-3 font-heading"><i class="bi bi-telephone-inbound-fill text-success me-2"></i>Direct Hotline</h5>
                     <p class="text-secondary small mb-0">+250 788 123 456<br>+250 722 987 654</p>
                 </div>
                 
                 <div class="pt-4 border-top border-secondary mt-4">
-                    <span class="text-secondary small">Supervised by Name-e-Shopping Administrative Registry.</span>
+                    <span class="text-secondary small">Supervised by NEEMA Administrative Registry.</span>
                 </div>
             </div>
         </div>

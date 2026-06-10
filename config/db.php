@@ -107,10 +107,9 @@ $check_cats = $conn->query("SELECT COUNT(*) as count FROM categories");
 $row_cats = $check_cats->fetch_assoc();
 if ($row_cats['count'] == 0) {
     $categories = [
-        ['Electronics', 'bi-laptop'],
+        ['Food Products', 'bi-cup-hot'],
         ['Fashion & Apparel', 'bi-sunglasses'],
-        ['Digital Products', 'bi-cloud-download'],
-        ['Home & Living', 'bi-house-heart'],
+        ['Electronics', 'bi-laptop'],
         ['Books & Media', 'bi-book']
     ];
     $stmt = $conn->prepare("INSERT INTO categories (name, icon) VALUES (?, ?)");
@@ -161,46 +160,46 @@ if ($row_seller['count'] == 0) {
         $products = [
             [
                 'seller_id' => $seller_id,
-                'name' => 'Premium Cyberpunk Laptop Stand',
-                'description' => 'A heavy-duty aluminum laptop stand featuring built-in RGB lighting, dynamic angle adjustments, and ergonomic cable routing holes. The perfect additions for power-users.',
-                'price' => 79.99,
-                'category_name' => 'Electronics',
-                'image_url' => 'assets/uploads/laptop_stand.svg',
+                'name' => 'Premium Rwandan Roasted Coffee',
+                'description' => 'Rich, aromatic 100% Arabica beans sourced directly from the high-altitude volcanic hills of Rwanda. Carefully roasted to perfection for an exquisite, full-bodied morning cup.',
+                'price' => 15000,
+                'category_name' => 'Food Products',
+                'image_url' => 'assets/uploads/food.png',
                 'file_url' => NULL,
-                'stock' => 15,
+                'stock' => 50,
                 'is_digital' => 0
             ],
             [
                 'seller_id' => $seller_id,
-                'name' => 'Futuristic Neon Hoodie',
-                'description' => 'High-comfort water-resistant cyber hoodie with luminous glowing neon stripes along the sleeves. Standard streetwear sizing with breathable cotton-mesh fabric.',
-                'price' => 120.00,
+                'name' => 'Minimalist Cyberpunk Jacket',
+                'description' => 'A futuristic, sleek dark-wear jacket designed for the modern urban environment. Features water-resistant fabric, subtle structural lines, and a tailored professional fit.',
+                'price' => 45000,
                 'category_name' => 'Fashion & Apparel',
-                'image_url' => 'assets/uploads/hoodie.svg',
+                'image_url' => 'assets/uploads/fashion.png',
                 'file_url' => NULL,
                 'stock' => 20,
                 'is_digital' => 0
             ],
             [
                 'seller_id' => $seller_id,
-                'name' => 'Complete UI Icon Kit (Digital)',
-                'description' => 'A pack of 500+ premium dynamic UI vector icons for professional developers. Includes raw SVG, Figma, and fully layered EPS resource formats for immediate download.',
-                'price' => 24.50,
-                'category_name' => 'Digital Products',
-                'image_url' => 'assets/uploads/icon_kit.svg',
-                'file_url' => 'assets/uploads/icon_kit_v1.zip',
-                'stock' => 999,
-                'is_digital' => 1
+                'name' => 'NEEMA Stealth Smart Watch',
+                'description' => 'An ultra-modern minimalist smart watch boasting an edge-to-edge dark AMOLED display. Features continuous health monitoring, seamless notifications, and a matte black aerospace-grade titanium body.',
+                'price' => 85000,
+                'category_name' => 'Electronics',
+                'image_url' => 'assets/uploads/electronics.png',
+                'file_url' => NULL,
+                'stock' => 15,
+                'is_digital' => 0
             ],
             [
                 'seller_id' => $seller_id,
-                'name' => 'Smart Ambient Mood Lamp',
-                'description' => 'Wifi-enabled sleek ambient mood sphere with responsive sound-active music modes. Fits on bedside tables or desktops for high-end office visual comfort.',
-                'price' => 45.00,
-                'category_name' => 'Home & Living',
-                'image_url' => 'assets/uploads/mood_lamp.svg',
+                'name' => 'The History of Rwanda (Hardcover)',
+                'description' => 'A comprehensive, beautifully bound hardcover edition detailing the rich, resilient history and vibrant culture of Rwanda. Perfect for collectors, historians, and avid readers.',
+                'price' => 25000,
+                'category_name' => 'Books & Media',
+                'image_url' => 'assets/uploads/books.png',
                 'file_url' => NULL,
-                'stock' => 8,
+                'stock' => 30,
                 'is_digital' => 0
             ]
         ];

@@ -63,88 +63,67 @@ $all_cats = $conn->query("SELECT * FROM categories ORDER BY name ASC");
 ?>
 
 <div class="container py-5 mt-4">
-    <div class="row gy-4">
-        <!-- Sidebar Filters -->
-        <div class="col-lg-3">
-            <div class="card-glass p-4 sticky-top" style="top: 100px; z-index: 10;">
-                <h4 class="text-white mb-4"><i class="bi bi-filter-square me-2 text-gradient-primary"></i>Refine Search</h4>
-                
-                <form action="shop.php" method="GET" class="d-flex flex-column gap-4">
-                    <!-- Search Keyword -->
-                    <div>
-                        <label class="form-glass-label">Search Products</label>
-                        <div class="input-group">
-                            <input type="text" name="search" class="form-control form-glass-input" placeholder="Keyword..." value="<?php echo htmlspecialchars($search); ?>">
-                            <button type="submit" class="btn btn-premium px-3"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Category Selector -->
-                    <div>
-                        <label class="form-glass-label">Category</label>
-                        <select name="category" class="form-select form-glass-input" onchange="this.form.submit()">
-                            <option value="0">All Categories</option>
-                            <?php if ($all_cats && $all_cats->num_rows > 0): ?>
-                                <?php while ($cat = $all_cats->fetch_assoc()): ?>
-                                    <option value="<?php echo $cat['id']; ?>" <?php echo $cat_filter == $cat['id'] ? 'selected' : ''; ?>>
-                                        <?php echo htmlspecialchars($cat['name']); ?>
-                                    </option>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </select>
-                    </div>
-
-                    <!-- Location Selector -->
-                    <div>
-                        <label class="form-glass-label">Seller Location</label>
-                        <select name="location" class="form-select form-glass-input" onchange="this.form.submit()">
-                            <option value="">All Locations</option>
-                            <?php if ($loc_res && $loc_res->num_rows > 0): ?>
-                                <?php while ($loc = $loc_res->fetch_assoc()): ?>
-                                    <option value="<?php echo htmlspecialchars($loc['seller_location']); ?>" <?php echo $loc_filter == $loc['seller_location'] ? 'selected' : ''; ?>>
-                                        <?php echo htmlspecialchars($loc['seller_location']); ?>
-                                    </option>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </select>
-                    </div>
-
-                    <!-- Digital / Physical Selector -->
-                    <div>
-                        <label class="form-glass-label">Product Class</label>
-                        <div class="d-flex gap-2">
-                            <input type="radio" class="btn-check" name="type" id="type_all" value="" <?php echo $type_filter == '' ? 'checked' : ''; ?> onchange="this.form.submit()">
-                            <label class="btn btn-outline-secondary w-100 btn-sm text-white" for="type_all">All</label>
-                            
-                            <input type="radio" class="btn-check" name="type" id="type_digital" value="digital" <?php echo $type_filter == 'digital' ? 'checked' : ''; ?> onchange="this.form.submit()">
-                            <label class="btn btn-outline-info w-100 btn-sm" for="type_digital">Digital</label>
-                            
-                            <input type="radio" class="btn-check" name="type" id="type_physical" value="physical" <?php echo $type_filter == 'physical' ? 'checked' : ''; ?> onchange="this.form.submit()">
-                            <label class="btn btn-outline-primary w-100 btn-sm" for="type_physical">Physical</label>
-                        </div>
-                    </div>
-
-                    <!-- Clear filters button -->
-                    <?php if ($search !== '' || $cat_filter > 0 || $loc_filter !== '' || $type_filter !== ''): ?>
-                        <a href="shop.php" class="btn btn-premium-secondary btn-sm text-center">Clear Filters <i class="bi bi-x-circle"></i></a>
-                    <?php endif; ?>
-                </form>
+    <!-- Horizontal Filter Bar -->
+    <div class="card-glass p-4 mb-5">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
+            <div>
+                <h3 class="text-white mb-1"><i class="bi bi-shop me-2 text-gradient-primary"></i>Shop Catalogue</h3>
+                <p class="text-secondary small mb-0">Showing <?php echo $prod_res->num_rows; ?> matches.</p>
             </div>
-        </div>
-
-        <!-- Catalog Grid -->
-        <div class="col-lg-9">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h2 class="text-white mb-1">Browse Catalogues</h2>
-                    <p class="text-secondary small">Showing <?php echo $prod_res->num_rows; ?> matches based on filters.</p>
+            
+            <form action="shop.php" method="GET" class="d-flex flex-wrap align-items-end gap-3 flex-grow-1 justify-content-lg-end">
+                <!-- Search Keyword -->
+                <div style="min-width: 250px; flex: 1;">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control form-glass-input" placeholder="Search products..." value="<?php echo htmlspecialchars($search); ?>">
+                        <button type="submit" class="btn btn-premium px-3"><i class="bi bi-search"></i></button>
+                    </div>
                 </div>
-            </div>
+                
+                <!-- Category Selector -->
+                <div style="min-width: 150px;">
+                    <select name="category" class="form-select form-glass-input" onchange="this.form.submit()">
+                        <option value="0">All Categories</option>
+                        <?php if ($all_cats && $all_cats->num_rows > 0): ?>
+                            <?php while ($cat = $all_cats->fetch_assoc()): ?>
+                                <option value="<?php echo $cat['id']; ?>" <?php echo $cat_filter == $cat['id'] ? 'selected' : ''; ?>><?php echo htmlspecialchars($cat['name']); ?></option>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </select>
+                </div>
+
+                <!-- Location Selector -->
+                <div style="min-width: 150px;">
+                    <select name="location" class="form-select form-glass-input" onchange="this.form.submit()">
+                        <option value="">All Locations</option>
+                        <?php if ($loc_res && $loc_res->num_rows > 0): ?>
+                            <?php while ($loc = $loc_res->fetch_assoc()): ?>
+                                <option value="<?php echo htmlspecialchars($loc['seller_location']); ?>" <?php echo $loc_filter == $loc['seller_location'] ? 'selected' : ''; ?>><?php echo htmlspecialchars($loc['seller_location']); ?></option>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </select>
+                </div>
+
+                <!-- Digital / Physical Selector -->
+                <div style="min-width: 150px;">
+                    <select name="type" class="form-select form-glass-input" onchange="this.form.submit()">
+                        <option value="" <?php echo $type_filter == '' ? 'selected' : ''; ?>>All Types</option>
+                        <option value="digital" <?php echo $type_filter == 'digital' ? 'selected' : ''; ?>>Digital</option>
+                        <option value="physical" <?php echo $type_filter == 'physical' ? 'selected' : ''; ?>>Physical</option>
+                    </select>
+                </div>
+
+                <?php if ($search !== '' || $cat_filter > 0 || $loc_filter !== '' || $type_filter !== ''): ?>
+                    <a href="shop.php" class="btn btn-premium-secondary" style="height: 46px; display: flex; align-items: center;" title="Reset Filters"><i class="bi bi-x-circle"></i></a>
+                <?php endif; ?>
+            </form>
+        </div>
+    </div>
             
             <div class="row g-4">
                 <?php if ($prod_res && $prod_res->num_rows > 0): ?>
                     <?php while ($prod = $prod_res->fetch_assoc()): ?>
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="card-glass d-flex flex-column h-100">
                                 <!-- Image Container -->
                                 <div class="position-relative overflow-hidden">
@@ -195,7 +174,6 @@ $all_cats = $conn->query("SELECT * FROM categories ORDER BY name ASC");
                 <?php endif; ?>
             </div>
         </div>
-    </div>
 </div>
 
 <?php require_once 'includes/footer.php'; ?>

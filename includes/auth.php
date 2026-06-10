@@ -107,6 +107,6 @@ function cart_count() {
  * Format currency.
  */
 function format_price($price) {
-    return '$' . number_format($price, 2);
+    return number_format($price, 0) . ' FRW';
 }
 ?>
